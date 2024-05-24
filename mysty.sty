@@ -1,0 +1,76 @@
+% This work is licensed under a Creative Commons Attribution 4.0 International License (CC BY-NC-SA).
+% https://creativecommons.org/licenses/by/4.0/
+
+\ProvidesPackage{mysty}[01/01/2024 created by Yuan-Yen Peng (NTHU, TW)]
+
+% Geometry of tex packages
+\RequirePackage[a4paper, margin=0.9in]{geometry}
+\RequirePackage{microtype} % For prettier indent and line changing
+\RequirePackage{authblk} % Able to add affiliations 
+\RequirePackage{fancyhdr} % Header and footer settings
+
+% Figures (png, pdf, SVG, etc.) packages
+\RequirePackage{graphicx}
+% \RequirePackage{svg}
+
+% Used fonts packages
+\RequirePackage{xeCJK} % Allow traditional Chinese (TW)
+\RequirePackage{fontspec} % Allow to change font types
+
+% Physics and math packages}
+\RequirePackage{unicode-math} % Allow unicode! If using XIT Math, it is crucial to exploit this package
+\RequirePackage{amsmath}
+\RequirePackage{physics}
+\RequirePackage[compat=1.1.0]{tikz-feynman} % draw Feynmann diagrams
+\tikzfeynmanset{/tikzfeynman/warn luatex=false}
+
+% Page style settings
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\footnotesize \nouppercase{\topic}}
+\rhead{\footnotesize \nouppercase{\leftmark}}
+\lfoot{\footnotesize Yuan-Yen Peng (\textit{112022502})}
+\rfoot{\footnotesize \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\fancypagestyle{front}{%
+    \fancyhf{}
+    \lfoot{\tiny \copyright~2024 Yuan-Yen Peng (彭元彥) \\
+            Licensed under CC 4.0 BY-NC-SA}
+    \rfoot{\footnotesize \thepage}
+    \renewcommand{\headrulewidth}{0.0pt}
+    \renewcommand{\footrulewidth}{0.3pt}%
+}
+
+% Font settings
+\setmainfont{TeX Gyre Pagella}
+\setmonofont{TeX Gyre Cursor}
+\setmathfont{XITS Math}
+\setCJKmainfont{TW-Kai}
+\setCJKmonofont{TW-Sung}
+
+% Additional settings (linespread and parskip)
+\linespread{1.2}
+\setlength{\parskip}{12pt}
+
+% Add logo
+\newcommand{\addlogo}{%
+    \noindent
+        \begin{picture}(0,0)
+            \put(0.5\textwidth - 4cm, 0.28\paperheight){\includegraphics[width=8cm]{nthu_logo.pdf}}
+        \end{picture}
+    \thispagestyle{front}%
+}
+
+% Adjust the abstract environment
+\renewenvironment{abstract}{%
+  \centering \textbf{Abstract} \\
+  \vspace{6pt}%
+}{}
+
+% Add the new commands for all setups for the front page
+\newcommand{\makefront}{%
+    \maketitle
+    \addlogo
+    \vspace*{-1.4cm}%
+}
