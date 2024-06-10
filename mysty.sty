@@ -4,7 +4,12 @@
 \ProvidesPackage{mysty}[01/01/2024 created by Yuan-Yen Peng (NTHU, TW)]
 
 % Geometry of tex packages
-\RequirePackage[a4paper, margin=0.9in]{geometry}
+\RequirePackage[
+a4paper, 
+margin=0.9in,
+% includehead,
+% headheight=-0.5in,% Set \headheight to 10mm
+]{geometry}
 \RequirePackage{microtype} % For prettier indent and line changing
 \RequirePackage{authblk} % Able to add affiliations 
 \RequirePackage{fancyhdr} % Header and footer settings
@@ -27,11 +32,11 @@
 % Page style settings
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\footnotesize \nouppercase{\topic}}
-\rhead{\footnotesize \nouppercase{\leftmark}}
+% \lhead{\footnotesize \nouppercase{\topic}}
+% \rhead{\footnotesize \nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0pt}
 \lfoot{\footnotesize Yuan-Yen Peng (\textit{112022502})}
 \rfoot{\footnotesize \thepage}
-\renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0.3pt}
 \fancypagestyle{front}{%
     \fancyhf{}
